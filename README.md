@@ -1,5 +1,12 @@
 # openGym — personal PWA build
 
+**Live site → https://beansproutcoffeeco-cloud.github.io/Test-2/**
+
+Open that in **Safari** on the iPhone, then Share → Add to Home Screen → Add.
+
+> Not loading yet? Pages has to be switched on once — see
+> [Going live](#going-live--one-switch-once) below.
+
 The **built, ready-to-serve static site** is at the root of this branch
 (`index.html`, `sw.js`, `manifest.json`, `icon-*.png`, `assets/`).
 
@@ -23,9 +30,8 @@ hand:
 > **Settings → Pages → Source: "Deploy from a branch" →
 > Branch: `claude/new-session-wv93yg`, Folder: `/ (root)` → Save**
 
-The site goes live 1–3 minutes later at:
-
-    https://beansproutcoffeeco-cloud.github.io/Test-2/
+The site goes live 1–3 minutes later at
+**https://beansproutcoffeeco-cloud.github.io/Test-2/**
 
 Asset paths are relative, so it works correctly under the `/Test-2/` subpath.
 Nothing else is required — the files are already committed.
