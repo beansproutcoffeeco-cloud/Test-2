@@ -41,10 +41,11 @@ jobs:
             ./ _site/
           ls -la _site
 
-      - name: Enable and configure Pages
+      # No enablement: true — creating the Pages site requires repo-admin
+      # rights the Actions token does not have, and it fails regardless of
+      # repository visibility. Pages must be switched on by hand once.
+      - name: Configure Pages
         uses: actions/configure-pages@v5
-        with:
-          enablement: true
 
       - uses: actions/upload-pages-artifact@v3
         with:
