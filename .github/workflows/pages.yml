@@ -1,8 +1,13 @@
 name: Deploy openGym PWA to Pages
 
+# Manual-only. This workflow is NOT needed if Pages is set to
+# "Deploy from a branch" (branch: claude/new-session-wv93yg, folder: / (root)),
+# which serves the committed site directly.
+#
+# It is only useful if Pages Source is set to "GitHub Actions" instead.
+# Either way, Pages must be switched on once by a repo admin first — the
+# Actions token here is not permitted to create the Pages site itself.
 on:
-  push:
-    branches: [claude/new-session-wv93yg]
   workflow_dispatch:
 
 permissions:
@@ -36,10 +41,8 @@ jobs:
             ./ _site/
           ls -la _site
 
-      - name: Enable and configure Pages
+      - name: Configure Pages
         uses: actions/configure-pages@v5
-        with:
-          enablement: true
 
       - uses: actions/upload-pages-artifact@v3
         with:
