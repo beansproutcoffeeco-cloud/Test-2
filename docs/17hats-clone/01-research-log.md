@@ -2005,3 +2005,111 @@ Right: **Settings | Sales Tax Report | Client Report | Templates** and a
 Invoice table columns: **INVOICE #** (sortable), **STATUS**, **CLIENT**,
 **PROJECT**, **CREATED DATE**, **DUE DATE**, **AMOUNT**, **BALANCE**.
 Status values observed: Open, Paid.
+
+
+---
+
+# Addendum C — client-facing document surfaces, 2026-09-03
+
+Verified against the account's own **test contact** (a contact created for
+testing, not a real customer), with the owner's explicit permission to open its
+client-side views. Still read-only: nothing was signed, accepted, paid or sent.
+
+## The client portal, as a client sees it
+
+Reached from the contact page's **VIEW CLIENT PORTAL** button, which opens
+`https://<subdomain>.17hats.com/portal/#/<contact token>/documents/all`.
+So each contact gets an opaque portal token in the URL.
+
+Layout confirmed against the settings preview, with two additions the preview
+did not show:
+- Filter pills carry **live counts**, e.g. "QUOTES (3)", "CONTRACTS (3)". A pill
+  only appears when the contact actually has documents of that type, which is
+  why the settings preview showed INVOICES and QUESTIONNAIRES and this contact
+  showed QUOTES and CONTRACTS.
+- A **Project Filter** dropdown sits to the right, defaulting to
+  **All Projects**. The portal spans every project for that contact, not one.
+
+The document table's third column is **context-sensitive**: it reads
+**Date Signed** on contract rows and **Date Accepted** on quote rows.
+Status values seen: **Open** (amber) and **Accepted** (plain).
+Header chips show **PAST DUE** and **BALANCE** as currency figures.
+
+## Contract, client side — signature capture is TYPE ONLY
+
+Opened at `https://<subdomain>.17hats.com/p#/contract/<token>`; from inside the
+portal the same document opens as an overlay via an `?overlay=` query parameter.
+
+The page is the rendered contract with a **Print** button and a
+**Back To Documents** link. Client-fillable fields inserted from INSERT FORM
+render inline in the body as real checkboxes and text inputs.
+
+At the foot sits the signature block. Verbatim prompt:
+
+> To indicate your acceptance of the above, sign electronically below.
+
+Beneath it, **one row per signatory**. Each row is a small name label, a text
+input whose placeholder reads **"Type your name"**, and a **Sign Contract**
+button.
+
+**This resolves the long-open draw-versus-type question: 17hats offers typing
+only.** There is no drawing canvas, no upload, and no stylus surface. The
+client types their name and presses Sign Contract.
+
+**Signing is sequential.** With two signatories the first row's Sign Contract
+button is enabled and the second is greyed out, confirming that the primary
+contact signs first and related contacts unlock afterwards.
+
+## Quote, client side — the packet is a stepper
+
+Opened from the admin quote page's **LIVE VIEW** button, at
+`https://<subdomain>.17hats.com/p#/quote/<token>`.
+
+The admin quote header itself states the packet rule in plain language:
+"Contract "<name>" was included with this quote. Invoice will be automatically
+shown upon acceptance of this quote and the contract."
+
+Client side, that becomes a **step tab strip across the top of the document**:
+
+    [ ✓ Quote ] [ <contract name> ] [ Invoice ]
+
+- a completed step carries a **tick** and is filled in the brand colour
+- the current step is outlined
+- **later steps are greyed out and not clickable until the earlier ones are
+  done** - the Invoice tab stays disabled until the quote is accepted and the
+  contract signed
+
+Quote body: logo, From / To blocks, quote number and issued date, then an
+**ITEM / QUANTITY / PRICE / TOTAL** table. Option groups render exactly as the
+template defines them - a **Select One** block captioned "Please select one of
+the following options:" with radio buttons and a PRICE column, and a
+corresponding multi-select block below it. Line-item photos render inline.
+
+## Not reachable, and why
+
+- **The invoice pay screen**, and with it the partial-payment "Other" amount
+  field and the tip control. The test contact has no invoice: its only quote
+  packet has not been accepted, and 17hats only materialises the invoice after
+  the quote is accepted and the contract signed. Producing one would mean
+  accepting a quote and signing a contract, which is a write.
+- **The quote accept and decline controls.** The one quote on the test contact
+  that reached a client-visible state is already **Accepted**, so its Quote step
+  renders read-only. The two unaccepted quotes sit on an **archived** project,
+  and their live view returns "The information you are looking for is no longer
+  available" - archiving a project **expires its client-facing document links**,
+  which is itself a useful behaviour to note.
+
+To close these two, the account owner would need to send a fresh quote with an
+invoice attached to the test contact, on an active project. That is a send, so
+it needs the owner to do it or to say explicitly that it is wanted.
+
+## Two incidental findings
+
+- The project switcher groups a contact's projects under **Active** and
+  **Archived** headings.
+- An archived project shows a banner reading "This Project is archived. To
+  modify the project you will have to unarchive it.", and its WORKFLOWS panel
+  groups entries under **Paused Workflows:** and **Completed Workflows:**, each
+  with a progress bar. Together with the Workflows page tabs
+  (OVERVIEW / ACTIVE / PAUSED / TEMPLATES) that confirms the workflow states:
+  active, paused, completed.

@@ -71,16 +71,42 @@ The read-only Claude in Chrome pass has been run. Full detail is in
     tiles: Zoom, QuickBooks, Zapier (beta), N-Vu (beta), Fundy, ProSelect,
     ShootProof, Disruptor Marketing, Clickbook.
 
+## Closed by the test-contact pass (same day)
+
+With the owner's permission, the account's **test contact** was used to open
+client-side views. Detail is in `01-research-log.md`, **Addendum C**.
+
+- **Signature capture — resolved: type only.** The contract's client-side
+  signature block prompts "To indicate your acceptance of the above, sign
+  electronically below.", then gives each signatory a text input placeheld
+  **"Type your name"** and a **Sign Contract** button. There is no drawing
+  canvas and no upload. Signing is **sequential**: the second signatory's
+  button stays disabled until the first has signed.
+- **Quote packet flow — resolved.** The client sees a **step tab strip** across
+  the top of the document: Quote, then the contract by name, then Invoice.
+  Completed steps carry a tick; later steps are greyed out and unclickable
+  until the earlier ones are done.
+- **Client portal — two additions to what the settings preview showed.** Filter
+  pills carry live counts and only appear for document types the contact
+  actually has, and a **Project Filter** dropdown spans all of that contact's
+  projects. The third column is context-sensitive: Date Signed for contracts,
+  Date Accepted for quotes.
+- **Archiving a project expires its client-facing document links.** The live
+  view of a quote on an archived project returns "The information you are
+  looking for is no longer available."
+
 ## Still open after the walkthrough
 
-1. **Quote decline flow and the full set of quote/invoice status names.** Only
-   Open, Paid, Sent, Draft, Accepted, Completed and Past Due were observed in
-   passing; the decline path needs a client-facing document.
-2. **Client-facing document UI**: accept / sign / pay screens, the
-   partial-payment "Other" amount field, the tip control, and signature
-   capture. Opening a live client document would record a client "viewed"
-   event, which the read-only rules forbade. This needs either a sandbox
-   account or explicit permission to open one document.
+1. **Quote accept and decline controls, and the full set of quote/invoice
+   status names.** The test contact's only client-visible quote is already
+   Accepted, so its quote step renders read-only, and its unaccepted quotes sit
+   on an archived project whose links have expired.
+2. **The invoice pay screen**, and with it the partial-payment "Other" amount
+   field and the tip control. 17hats only materialises the invoice after the
+   quote is accepted and the contract signed, so no invoice exists on the test
+   contact. Both this and item 1 need a fresh quote-plus-invoice packet sent to
+   the test contact on an active project, which is a send and therefore the
+   owner's call.
 3. **2FA and security settings.** Not found. Account Settings has My Account,
    Brand Preferences, Email Settings, Calendars, Client Portal, Online
    Scheduling, Users, Change My Login, Referrals, Plan Information,
