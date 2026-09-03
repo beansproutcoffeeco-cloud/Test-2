@@ -65,3 +65,14 @@ curl -s -o /dev/null -w "%{http_code}\n" \
 If that is not `200`, the fallback is to copy `media/img` and `media/gif` from
 the upstream repo into the site root and rebuild without the two `VITE_*_BASE`
 variables (~275 MB, but no CDN dependency).
+
+---
+
+## 17hats clone — discovery & plan
+
+Separate from the openGym build above, this branch also carries the discovery
+work for a 17hats-style business-management app:
+
+- `docs/17hats-analysis/` — page-by-page research on how 17hats works (read-only; no data touched)
+- `docs/plan/` — PRD, improvements backlog, architecture, data model, roadmap, parity matrix, risks
+- `tools/capture/` — read-only Playwright script to capture 17hats page structure from your own logged-in Chrome
