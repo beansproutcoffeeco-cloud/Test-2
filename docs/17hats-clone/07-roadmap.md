@@ -7,7 +7,7 @@ are calendar weeks. Sizes reference `06-feature-inventory.md`.
 
 **Goal:** verified requirements, design system, skeleton app.
 
-- Run the Claude in Chrome read-only walkthrough (`00-in-app-walkthrough-checklist.md`) and close every **[verify in-app]** item in the research log.
+- ~~Run the Claude in Chrome read-only walkthrough (`00-in-app-walkthrough-checklist.md`)~~ **Done 2026-09-03.** All eleven passes were completed read-only against a live account. Findings are in `01-research-log.md` Addendum B, corrections and the remaining gaps in `08-open-questions.md`, screenshots in `screens/`. Seven items are still open, chiefly the client-facing document UI (accept / sign / pay, tip control, signature capture), the quote decline flow, invoice template internals and the mobile app - all of which need either a sandbox account or permission to touch a live client document.
 - 5–8 customer interviews with current 17hats users (photographers, coaches); validate pricing and the top-8 improvements.
 - Decide name, domain, pricing.
 - Design: information architecture, navigation, design tokens, core screens (dashboard, contact, project, document editor, client document page, Kanban).

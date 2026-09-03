@@ -21,7 +21,14 @@ Claude in Chrome connection and its network proxy blocked 17hats.com, the
 help center, blog, and all review sites, so the research is reconstructed
 from search-engine summaries of about 120 help-center articles, blog posts,
 release notes, and third-party reviews (every entry cites its sources). No
-17hats account was accessed and no data was changed. Items marked
-**[verify in-app]** are to be confirmed by running the checklist in
-`00-in-app-walkthrough-checklist.md` from a local Claude Code session with
-Claude in Chrome.
+17hats account was accessed at that stage and no data was changed.
+
+**Updated 2026-09-03.** The verification checklist in
+`00-in-app-walkthrough-checklist.md` has since been run as a read-only Claude
+in Chrome pass over a live 17hats account. Every previously flagged item is
+resolved inline in `01-research-log.md`, with the full page-by-page record in
+its **Addendum B** and screenshots in `screens/`. Corrections the walkthrough
+forces on the rest of these documents, plus the seven items still open, are
+listed in `08-open-questions.md`. The walkthrough created, edited, sent and
+deleted nothing, and records no client names, contact details, payment data or
+amounts.

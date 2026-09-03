@@ -1,10 +1,20 @@
 # In-app walkthrough checklist (for a Claude in Chrome session)
 
+> **STATUS: run on 2026-09-03.** Passes 1 through 11 were completed read-only
+> against a live account. Results are in `01-research-log.md` (inline
+> **Verified in-app** notes, plus the full record in **Addendum B**),
+> corrections and remaining gaps in `08-open-questions.md`, and screenshots in
+> `screens/` rather than `screenshots/`. Pass 12 (mobile) was not attempted.
+> Items deliberately skipped, because completing them would have written to a
+> live record: the client-facing document UI and signature capture, the
+> dashboard snooze menu, the dashboard Grouping sort, and global search (which
+> needs typing).
+
 **Why this exists.** The cloud session that produced these docs had no
 Chrome connection and the network blocked 17hats.com, so the research log was
 built from help-center summaries. This checklist is the script for a
 **read-only** pass through a real 17hats account using Claude in Chrome, to
-confirm every item marked **[verify in-app]** and to capture screenshots.
+confirm every item flagged for in-app checking and to capture screenshots.
 
 **How to run it.** Open Claude Code on your own machine (desktop app or CLI)
 with the Claude in Chrome extension installed and connected, log in to 17hats
