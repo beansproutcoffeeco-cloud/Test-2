@@ -13,6 +13,7 @@ Read in order.
 | `06-feature-inventory.md` | Every 17hats feature with parity/improve/defer decision, effort, phase |
 | `07-roadmap.md` | Phases, sprint plan, milestones, risks |
 | `08-open-questions.md` | What still needs verifying and deciding |
+| `09-tags-and-tokens.md` | Deep dive on how tags and tokens work, how the Bean Sprout account uses them today, and what the clone should do differently |
 
 ## How this was produced
 
